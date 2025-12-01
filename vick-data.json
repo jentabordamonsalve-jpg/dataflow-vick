@@ -1,1 +1,114 @@
 
+{
+  "producto": {
+    "nombre": "Vick Vaporub",
+    "marca": "Vick",
+    "empresa": "Procter & Gamble",
+    "presentaciones": ["12g", "50g", "100g"],
+    "categoria": "Ungüento para alivio respiratorio",
+    "ingredientes_activos": {
+      "alcanfor_g": 5.26,
+      "mentol_g": 2.82,
+      "eucalipto_g": 1.33
+    },
+    "excipientes": [
+      "Petrolato",
+      "Aceite de trementina",
+      "Aceite de cedro",
+      "Nuez moscada",
+      "Timol"
+    ],
+    "advertencias": {
+      "edad_minima": 2,
+      "uso_externo": true,
+      "no_ingestion": true,
+      "no_nariz": true
+    }
+  },
+
+  "inventarios": {
+    "porcentaje": {
+      "Bogotá": 22,
+      "Medellín": 41,
+      "Cali": 78
+    },
+    "unidades": {
+      "Bogotá": 450,
+      "Medellín": 620,
+      "Cali": 1150
+    },
+    "riesgo": {
+      "Bogotá": 9,
+      "Medellín": 5,
+      "Cali": 2
+    }
+  },
+
+  "tendencias": {
+    "Bogotá": { "gripe": 48, "tos": 32, "frio": 60 },
+    "Medellín": { "gripe": 27, "tos": 33, "frio": 45 },
+    "Cali": { "gripe": -12, "tos": 5, "frio": 15 }
+  },
+
+  "demanda": {
+    "real_dias": ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+    "real_valores": [2000, 2500, 4000, 6000, 5500, 7000],
+
+    "ia_proyeccion_6d": [7200, 8200, 9200, 11000, 13500, 15000],
+
+    "tendencias": [48, 32, 60, 55, 50, 68],
+
+    "clima": [15, 20, 40, 60, 55, 70],
+
+    "mixta": [3070, 3630, 4390, 5740, 5950, 7260]
+  },
+
+  "demanda_estacional": {
+    "Enero": 1.30,
+    "Febrero": 0.95,
+    "Marzo": 0.70,
+    "Abril": 0.65,
+    "Mayo": 0.90,
+    "Junio": 1.20,
+    "Julio": 1.30,
+    "Agosto": 1.10,
+    "Septiembre": 0.95,
+    "Octubre": 1.25,
+    "Noviembre": 1.40,
+    "Diciembre": 1.65
+  },
+
+  "historico": {
+    "meses": [
+      "Enero", "Febrero", "Marzo", "Abril",
+      "Mayo", "Junio", "Julio", "Agosto",
+      "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ],
+    "valores": {
+      "Enero":    [1200, 1300, 1100, 1400],
+      "Febrero":  [1100, 1150, 1300, 1250],
+      "Marzo":    [1250, 1400, 1350, 1500],
+      "Abril":    [1400, 1500, 1450, 1600],
+      "Mayo":     [1300, 1350, 1420, 1500],
+      "Junio":    [1200, 1300, 1280, 1350],
+      "Julio":    [1500, 1600, 1550, 1700],
+      "Agosto":   [1400, 1420, 1380, 1450],
+      "Septiembre": [1300, 1280, 1250, 1320],
+      "Octubre":    [1600, 1700, 1650, 1800],
+      "Noviembre":  [1500, 1550, 1520, 1600],
+      "Diciembre":  [1700, 1800, 1750, 1900]
+    }
+  },
+
+  "chatbot": {
+    "saludo": "Hola 👋 Soy Mamá Vicky, tu asistente Vick. ¿En qué puedo ayudarte hoy?",
+    "respuestas": {
+      "inventario": "Aquí tienes los inventarios actuales: Bogotá 22%, Medellín 41%, Cali 78%.",
+      "recomendacion": "Recomendación: Priorizar envío a Bogotá por inventario crítico (<30%).",
+      "tendencias": "Bogotá registra aumento de búsquedas de gripe. Medellín estable. Cali en descenso.",
+      "mapa": "El mapa muestra inventarios por ciudad con marcadores de color según nivel de stock.",
+      "uso": "Vick Vaporub se aplica en pecho y cuello. No en nariz. No usar en menores de 2 años.",
+      "error": "No entendí, prueba con: 'Inventario Bogotá', 'Recomendación' o 'Tendencias'."
+    }
+  }
+}
