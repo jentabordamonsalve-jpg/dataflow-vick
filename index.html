@@ -1,56 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>VICK DATAFLOW – Nueva Plataforma</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #eef3fb;
-        }
-        header {
-            background: #003366;
-            color: white;
-            padding: 18px;
-            font-size: 20px;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-        }
-        pre {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            white-space: pre-wrap;
-            font-size: 14px;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VICK DATAFLOW – Plataforma</title>
+
+<!-- Estilos -->
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #f3f8f4;
+        color: #333;
+    }
+
+    .header {
+        background: #0b7e4a;
+        color: white;
+        padding: 20px;
+        font-size: 26px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    pre {
+        background: #e8f5e9;
+        padding: 15px;
+        border-radius: 10px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        font-size: 14px;
+    }
+
+    .avatar {
+        width: 80px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+</style>
 </head>
 
 <body>
-    <header>VICK DATAFLOW – Nueva Plataforma</header>
 
-    <div class="container">
-        <h2>Bienvenido</h2>
-        <p>El sistema está cargando datos desde vick-data.json...</p>
+<div class="header">VICK DATAFLOW – Nueva Plataforma</div>
 
-        <h3>Datos cargados del JSON:</h3>
-        <pre id="jsonOutput">Cargando...</pre>
+<div class="container">
+
+    <div class="card">
+        <h2>Datos cargados desde vick-data.json</h2>
+        <pre id="jsonOutput">Cargando datos...</pre>
     </div>
 
-    <script>
-        fetch("vick-data.json")
-            .then(r => r.json())
-            .then(data => {
-                document.getElementById("jsonOutput").textContent =
-                    JSON.stringify(data, null, 2);
-            })
-            .catch(err => {
-                document.getElementById("jsonOutput").textContent =
-                    "Error cargando JSON: " + err;
-            });
-    </script>
+</div>
+
+<img src="vicky.png" class="avatar" alt="Asistente Vicky" />
+
+<script>
+    // Cargar el JSON
+    fetch("vick-data.json")
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("jsonOutput").textContent =
+                JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+            document.getElementById("jsonOutput").textContent =
+                "Error cargando JSON: " + err;
+        });
+</script>
+
 </body>
 </html>
