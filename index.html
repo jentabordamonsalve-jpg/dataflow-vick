@@ -1,86 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VICK DATAFLOW – Plataforma</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VICK DATAFLOW – Nueva Plataforma</title>
 
-<!-- Estilos -->
-<style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: #f3f8f4;
-        color: #333;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f7f3;
+        }
 
-    .header {
-        background: #0b7e4a;
-        color: white;
-        padding: 20px;
-        font-size: 26px;
-        text-align: center;
-        font-weight: bold;
-    }
+        header {
+            background: #0c8a3e;
+            color: white;
+            padding: 20px;
+            font-size: 22px;
+            text-align: center;
+            font-weight: bold;
+        }
 
-    .container {
-        padding: 20px;
-        max-width: 1200px;
-        margin: auto;
-    }
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-    .card {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
+        h2 {
+            color: #0c8a3e;
+        }
 
-    pre {
-        background: #e8f5e9;
-        padding: 15px;
-        border-radius: 10px;
-        overflow-x: auto;
-        white-space: pre-wrap;
-        font-size: 14px;
-    }
+        pre {
+            background: #e9f7ec;
+            padding: 15px;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            font-size: 14px;
+        }
 
-    .avatar {
-        width: 80px;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
-</style>
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="header">VICK DATAFLOW – Nueva Plataforma</div>
+<header>VICK DATAFLOW – Nueva Plataforma</header>
 
 <div class="container">
-
-    <div class="card">
-        <h2>Datos cargados desde vick-data.json</h2>
-        <pre id="jsonOutput">Cargando datos...</pre>
-    </div>
-
+    <h2>Datos cargados desde vick-data.json</h2>
+    <pre id="jsonOutput">Cargando datos...</pre>
 </div>
 
-<img src="vicky.png" class="avatar" alt="Asistente Vicky" />
+<footer>© 2025 Plataforma VICK • Beta</footer>
 
 <script>
-    // Cargar el JSON
+    // Cargar JSON
     fetch("vick-data.json")
-        .then(r => r.json())
+        .then(response => response.json())
         .then(data => {
-            document.getElementById("jsonOutput").textContent =
-                JSON.stringify(data, null, 2);
+            document.getElementById("jsonOutput").textContent = JSON.stringify(data, null, 2);
         })
         .catch(err => {
-            document.getElementById("jsonOutput").textContent =
-                "Error cargando JSON: " + err;
+            document.getElementById("jsonOutput").textContent = "Error cargando JSON: " + err;
         });
 </script>
 
