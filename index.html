@@ -1,79 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VICK DATAFLOW - Nueva Versión</title>
-
-<!-- Librerías necesarias -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f1f7ff;
-    }
-    header {
-        background: #004c97;
-        padding: 15px;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-        font-size: 22px;
-    }
-    .content {
-        padding: 20px;
-    }
-    #avatar {
-        position: fixed;
-        right: 25px;
-        bottom: 25px;
-        width: 80px;
-        height: 80px;
-        cursor: pointer;
-        z-index: 1000;
-    }
-</style>
-
+    <meta charset="UTF-8">
+    <title>VICK DATAFLOW – Nueva Plataforma</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #eef3fb;
+        }
+        header {
+            background: #003366;
+            color: white;
+            padding: 18px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        pre {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
+    <header>VICK DATAFLOW – Nueva Plataforma</header>
 
-<header>VICK DATAFLOW – Nueva Plataforma</header>
+    <div class="container">
+        <h2>Bienvenido</h2>
+        <p>El sistema está cargando datos desde vick-data.json...</p>
 
-<div class="content">
-    <h2>Bienvenido</h2>
-    <p>El sistema está cargando datos desde vick-data.json...</p>
+        <h3>Datos cargados del JSON:</h3>
+        <pre id="jsonOutput">Cargando...</pre>
+    </div>
 
-    <h3>Datos cargados del JSON:</h3>
-    <pre id="jsonPreview" style="background:#fff;padding:15px;border-radius:10px;"></pre>
-</div>
-
-<!-- Avatar -->
-<img id="avatar" src="vicky.png" alt="Asistente Vicky">
-
-<script>
-// =======================
-// Cargar JSON automáticamente
-// =======================
-fetch("vick-data.json")
-    .then(response => response.json())
-    .then(data => {
-        console.log("JSON cargado:", data);
-        document.getElementById("jsonPreview").textContent =
-            JSON.stringify(data, null, 2);
-
-        // Aquí empezaremos a construir dashboards, IA, mapas, chatbot, etc.
-    })
-    .catch(err => {
-        console.error("Error cargando JSON:", err);
-        document.getElementById("jsonPreview").textContent =
-            "ERROR cargando JSON";
-    });
-
-</script>
-
+    <script>
+        fetch("vick-data.json")
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById("jsonOutput").textContent =
+                    JSON.stringify(data, null, 2);
+            })
+            .catch(err => {
+                document.getElementById("jsonOutput").textContent =
+                    "Error cargando JSON: " + err;
+            });
+    </script>
 </body>
 </html>
